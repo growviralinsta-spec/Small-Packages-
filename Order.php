@@ -1,40 +1,34 @@
-<!DOCTYPE html><html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grow Viral Insta</title>
-    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script type="application/javascript" src="https://securegw.paytm.in/merchantpgpui/checkoutjs/merchants/XCHJwU81816697465828"></script>
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-bg { background: linear-gradient(135deg, #87CEEB 0%, #ffffff 100%); }
-        .package-card { transition: all 0.3s ease; }
-        .package-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(135, 206, 235, 0.2); }
-        .btn-primary { background-color: #1E90FF; transition: all 0.3s ease; }
-        .btn-primary:hover { background-color: #0066CC; transform: translateY(-2px); }
-    </style>
-</head>
-<body class="bg-gray-50">
-    <!-- Header Section -->
-<!-- Packages Section -->
-<section id="packages" class="py-20 px-6 bg-white">
-    <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-900 mb-16" data-aos="fade-up">Our Instagram Packages</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="package-card bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 shadow-md flex flex-col items-center" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="text-2xl font-bold text-blue-800 mb-4">Regular Package</h3>
-                <div class="text-3xl font-bold text-blue-600 mb-6">₹29</div>
-                <ul class="text-blue-700 mb-8 space-y-3">
-                    <li class="flex items-center"><i data-feather="check" class="text-green-500 mr-2"></i>2000+ Views 👀  ( Indian 🇮🇳 )</li>
-                    <li class="flex items-center"><i data-feather="check" class="text-green-500 mr-2"></i>150+ Likes ❤️ ( Indian 🇮🇳 )</li>
-                    <li class="flex items-center"><i data-feather="check" class="text-green-500 mr-2"></i>Non Drop ✅</li>
+<?php
+// SMM Birla API details
+$api_url = "https://smm-birla-panel.com/api/v2"; // actual API URL
+$api_key = "0cd7b00b4900a29491ff3387e945e286";
+
+// Form se data
+$link = $_POST['link'];
+$service = $_POST['service'];
+$quantity = $_POST['quantity'];
+
+$post = [
+  "key" => $api_key,
+  "action" => "add",
+  "service" => $service,
+  "link" => $link,
+  "quantity" => $quantity
+];
+
+$ch = curl_init($api_url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post));
+$response = curl_exec($ch);
+curl_close($ch);
+
+$result = json_decode($response, true);
+
+if(isset($result['order'])){
+  echo "✅ Order placed. Order ID: ".$result['order'];
+}else{
+  echo "❌ Order failed";
+}                    <li class="flex items-center"><i data-feather="check" class="text-green-500 mr-2"></i>Non Drop ✅</li>
                      <li class="flex items-center"><i data-feather="check" class="text-green-500 mr-2"></i>Instant Start 🚀</li>
                 </ul>
                <form action="order.php" method="POST" class="w-full">
