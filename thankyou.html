@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Payment Successful</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+body{
+background:#0b0b0b;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:100vh;
+padding:20px;
+}
+
+.box{
+background:#111;
+padding:30px;
+border-radius:16px;
+max-width:420px;
+width:100%;
+text-align:center;
+box-shadow:0 0 30px rgba(0,255,156,.15);
+}
+
+h1{color:#00ff9c;margin-bottom:10px;}
+p{opacity:.8;margin-bottom:20px;}
+
+input{
+width:100%;
+padding:13px;
+margin-top:12px;
+background:#1a1a1a;
+border:none;
+border-radius:10px;
+color:white;
+}
+
+.file{
+background:#1a1a1a;
+padding:12px;
+border-radius:10px;
+margin-top:12px;
+}
+
+button{
+width:100%;
+padding:14px;
+margin-top:18px;
+border:none;
+border-radius:12px;
+background:#00ff9c;
+font-weight:600;
+cursor:pointer;
+font-size:16px;
+}
+
+.note{
+font-size:13px;
+opacity:.6;
+margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>✅ Payment Successful</h1>
+<p>Upload screenshot & send order on WhatsApp</p>
+
+<input type="text" id="link" placeholder="Paste your Reel link">
+<input class="file" type="file" id="file">
+
+<button onclick="sendWhatsApp()">Send to WhatsApp</button>
+
+<div class="note">
+After WhatsApp opens, attach screenshot & press send.
+</div>
+
+</div>
+
+<script>
+function sendWhatsApp(){
+let pkg = localStorage.getItem("pkg") || "Reel Package";
+let amount = localStorage.getItem("amount") || "";
+
+let link = document.getElementById("link").value;
+
+let msg = `Payment Done:%0A%0APackage: ${pkg}%0AAmount: ₹${amount}%0AReel Link: ${link}%0A%0A(Screenshot attached)`;
+
+window.open(`https://wa.me/917818858075?text=${msg}`,'_blank');
+}
+</script>
+
+</body>
+</html>
