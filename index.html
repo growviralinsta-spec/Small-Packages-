@@ -13,14 +13,16 @@ body{background:#0b0b0b;color:white;}
 header{text-align:center;padding:50px 20px;}
 header h1{color:#00ff9c;font-size:40px;}
 
-/* Packages */
+/* Packages grid */
 .packages{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
+gap:22px;
 margin-top:30px;
+justify-items:center;
 }
 
+/* Card */
 .card{
 background:#111;
 padding:25px;
@@ -28,6 +30,8 @@ border-radius:16px;
 text-align:center;
 box-shadow:0 0 25px rgba(0,255,156,.15);
 transition:.25s;
+width:100%;
+max-width:320px;
 }
 
 .card:hover{
@@ -40,13 +44,16 @@ color:#00ff9c;
 margin:12px 0;
 }
 
+/* Features */
 .features{
-text-align:left;
+text-align:center;
 margin:15px 0;
-opacity:.9;
-line-height:1.6;
+opacity:.95;
+line-height:1.8;
+font-size:15px;
 }
 
+/* Button */
 button{
 background:#00ff9c;
 border:none;
@@ -58,7 +65,7 @@ width:100%;
 font-size:15px;
 }
 
-/* Screenshot section */
+/* Screenshot box */
 .screenshot-box{
 display:none;
 margin-top:45px;
@@ -105,8 +112,8 @@ margin-top:10px;
 <h3>Starter Reel Boost</h3>
 <div class="price">₹29</div>
 <div class="features">
-✔ 2000 Views<br>
-✔ 150 Likes
+🇮🇳 2000 Views<br>
+🇮🇳 150 Likes
 </div>
 <button onclick="payNow(29,'Starter Reel Boost')">Order Now</button>
 </div>
@@ -116,9 +123,9 @@ margin-top:10px;
 <h3>Growth Reel Boost</h3>
 <div class="price">₹49</div>
 <div class="features">
-✔ 5000 Views<br>
-✔ 250 Likes<br>
-✔ 500 Shares
+🇮🇳 5000 Views<br>
+🇮🇳 250 Likes<br>
+🇮🇳 500 Shares
 </div>
 <button onclick="payNow(49,'Growth Reel Boost')">Order Now</button>
 </div>
@@ -128,9 +135,9 @@ margin-top:10px;
 <h3>Pro Reel Boost</h3>
 <div class="price">₹69</div>
 <div class="features">
-✔ 8000 Views<br>
-✔ 400 Likes<br>
-✔ 1000 Shares
+🇮🇳 8000 Views<br>
+🇮🇳 400 Likes<br>
+🇮🇳 1000 Shares
 </div>
 <button onclick="payNow(69,'Pro Reel Boost')">Order Now</button>
 </div>
@@ -161,10 +168,8 @@ function payNow(amount, pkg){
 
   const upiLink = `upi://pay?pa=paytm.s1qzkel@pty&pn=Adnan%20SMM&am=${amount}&cu=INR`;
 
-  // Open UPI
   window.location.href = upiLink;
 
-  // Show screenshot box after 3 sec
   setTimeout(function(){
     document.getElementById("shotBox").style.display="block";
     window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
@@ -183,4 +188,4 @@ window.open(`https://wa.me/917818858075?text=${msg}`,'_blank');
 </script>
 
 </body>
-</html>
+  </html>
