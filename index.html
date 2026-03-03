@@ -13,6 +13,7 @@ body{background:#0b0b0b;color:white;}
 header{text-align:center;padding:50px 20px;}
 header h1{color:#00ff9c;font-size:40px;}
 
+/* Packages */
 .packages{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -26,9 +27,25 @@ padding:25px;
 border-radius:16px;
 text-align:center;
 box-shadow:0 0 25px rgba(0,255,156,.15);
+transition:.25s;
 }
 
-.price{font-size:28px;color:#00ff9c;margin:15px 0;}
+.card:hover{
+transform:translateY(-6px);
+}
+
+.price{
+font-size:28px;
+color:#00ff9c;
+margin:12px 0;
+}
+
+.features{
+text-align:left;
+margin:15px 0;
+opacity:.9;
+line-height:1.6;
+}
 
 button{
 background:#00ff9c;
@@ -38,16 +55,17 @@ border-radius:10px;
 font-weight:bold;
 cursor:pointer;
 width:100%;
+font-size:15px;
 }
 
-/* Screenshot box */
+/* Screenshot section */
 .screenshot-box{
 display:none;
-margin-top:40px;
+margin-top:45px;
 background:#111;
 padding:25px;
 border-radius:16px;
-max-width:500px;
+max-width:520px;
 margin-left:auto;
 margin-right:auto;
 text-align:center;
@@ -82,27 +100,44 @@ margin-top:10px;
 
 <div class="packages">
 
+<!-- Package 1 -->
 <div class="card">
 <h3>Starter Reel Boost</h3>
 <div class="price">₹29</div>
+<div class="features">
+✔ 2000 Views<br>
+✔ 150 Likes
+</div>
 <button onclick="payNow(29,'Starter Reel Boost')">Order Now</button>
 </div>
 
+<!-- Package 2 -->
 <div class="card">
 <h3>Growth Reel Boost</h3>
 <div class="price">₹49</div>
+<div class="features">
+✔ 5000 Views<br>
+✔ 250 Likes<br>
+✔ 500 Shares
+</div>
 <button onclick="payNow(49,'Growth Reel Boost')">Order Now</button>
 </div>
 
+<!-- Package 3 -->
 <div class="card">
 <h3>Pro Reel Boost</h3>
 <div class="price">₹69</div>
+<div class="features">
+✔ 8000 Views<br>
+✔ 400 Likes<br>
+✔ 1000 Shares
+</div>
 <button onclick="payNow(69,'Pro Reel Boost')">Order Now</button>
 </div>
 
 </div>
 
-<!-- 🔥 Screenshot Section -->
+<!-- Screenshot Section -->
 <div class="screenshot-box" id="shotBox">
 <h2>✅ Payment Done?</h2>
 <p>Upload screenshot & send on WhatsApp</p>
