@@ -34,9 +34,7 @@ width:100%;
 max-width:320px;
 }
 
-.card:hover{
-transform:translateY(-6px);
-}
+.card:hover{transform:translateY(-6px);}
 
 .price{
 font-size:28px;
@@ -46,11 +44,27 @@ margin:12px 0;
 
 /* Features */
 .features{
-text-align:center;
 margin:15px 0;
 opacity:.95;
-line-height:1.8;
+line-height:1.9;
 font-size:15px;
+text-align:left;
+}
+
+.feature-item{
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:#1a1a1a;
+padding:8px 12px;
+border-radius:8px;
+margin-top:8px;
+}
+
+.feature-left{
+display:flex;
+align-items:center;
+gap:8px;
 }
 
 /* Button */
@@ -112,8 +126,17 @@ margin-top:10px;
 <h3>Starter Reel Boost</h3>
 <div class="price">₹29</div>
 <div class="features">
-🇮🇳 2000 Views<br>
-🇮🇳 150 Likes
+
+<div class="feature-item">
+<div class="feature-left">👁 2000 Views</div>
+<div>🇮🇳</div>
+</div>
+
+<div class="feature-item">
+<div class="feature-left">❤️ 150 Likes</div>
+<div>🇮🇳</div>
+</div>
+
 </div>
 <button onclick="payNow(29,'Starter Reel Boost')">Order Now</button>
 </div>
@@ -123,9 +146,22 @@ margin-top:10px;
 <h3>Growth Reel Boost</h3>
 <div class="price">₹49</div>
 <div class="features">
-🇮🇳 5000 Views<br>
-🇮🇳 250 Likes<br>
-🇮🇳 500 Shares
+
+<div class="feature-item">
+<div class="feature-left">👁 5000 Views</div>
+<div>🇮🇳</div>
+</div>
+
+<div class="feature-item">
+<div class="feature-left">❤️ 250 Likes</div>
+<div>🇮🇳</div>
+</div>
+
+<div class="feature-item">
+<div class="feature-left">🔁 500 Shares</div>
+<div>🇮🇳</div>
+</div>
+
 </div>
 <button onclick="payNow(49,'Growth Reel Boost')">Order Now</button>
 </div>
@@ -135,9 +171,22 @@ margin-top:10px;
 <h3>Pro Reel Boost</h3>
 <div class="price">₹69</div>
 <div class="features">
-🇮🇳 8000 Views<br>
-🇮🇳 400 Likes<br>
-🇮🇳 1000 Shares
+
+<div class="feature-item">
+<div class="feature-left">👁 8000 Views</div>
+<div>🇮🇳</div>
+</div>
+
+<div class="feature-item">
+<div class="feature-left">❤️ 400 Likes</div>
+<div>🇮🇳</div>
+</div>
+
+<div class="feature-item">
+<div class="feature-left">🔁 1000 Shares</div>
+<div>🇮🇳</div>
+</div>
+
 </div>
 <button onclick="payNow(69,'Pro Reel Boost')">Order Now</button>
 </div>
