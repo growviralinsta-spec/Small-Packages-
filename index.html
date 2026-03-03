@@ -39,6 +39,36 @@ font-weight:bold;
 cursor:pointer;
 width:100%;
 }
+
+/* Screenshot box */
+.screenshot-box{
+display:none;
+margin-top:40px;
+background:#111;
+padding:25px;
+border-radius:16px;
+max-width:500px;
+margin-left:auto;
+margin-right:auto;
+text-align:center;
+box-shadow:0 0 25px rgba(0,255,156,.15);
+}
+
+input{
+width:100%;
+padding:13px;
+margin-top:12px;
+background:#1a1a1a;
+border:none;
+border-radius:10px;
+color:white;
+}
+
+.note{
+font-size:13px;
+opacity:.6;
+margin-top:10px;
+}
 </style>
 </head>
 
@@ -71,6 +101,22 @@ width:100%;
 </div>
 
 </div>
+
+<!-- 🔥 Screenshot Section -->
+<div class="screenshot-box" id="shotBox">
+<h2>✅ Payment Done?</h2>
+<p>Upload screenshot & send on WhatsApp</p>
+
+<input type="text" id="link" placeholder="Paste your Reel link">
+<input type="file" id="file">
+
+<button onclick="sendWhatsApp()">Send to WhatsApp</button>
+
+<div class="note">
+After WhatsApp opens, attach screenshot & press send.
+</div>
+</div>
+
 </div>
 
 <script>
@@ -80,13 +126,24 @@ function payNow(amount, pkg){
 
   const upiLink = `upi://pay?pa=paytm.s1qzkel@pty&pn=Adnan%20SMM&am=${amount}&cu=INR`;
 
-  // UPI open
+  // Open UPI
   window.location.href = upiLink;
 
-  // Auto redirect to thank you page
+  // Show screenshot box after 3 sec
   setTimeout(function(){
-    window.location.href = "thankyou.html";
+    document.getElementById("shotBox").style.display="block";
+    window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
   },3000);
+}
+
+function sendWhatsApp(){
+let pkg = localStorage.getItem("pkg") || "Reel Package";
+let amount = localStorage.getItem("amount") || "";
+let link = document.getElementById("link").value;
+
+let msg = `Payment Done:%0A%0APackage: ${pkg}%0AAmount: ₹${amount}%0AReel Link: ${link}%0A%0A(Screenshot attached)`;
+
+window.open(`https://wa.me/917818858075?text=${msg}`,'_blank');
 }
 </script>
 
