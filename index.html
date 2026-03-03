@@ -75,11 +75,18 @@ width:100%;
 
 <script>
 function payNow(amount, pkg){
-localStorage.setItem("pkg",pkg);
-localStorage.setItem("amount",amount);
+  localStorage.setItem("pkg", pkg);
+  localStorage.setItem("amount", amount);
 
-// UPI open
-window.location.href=`upi://pay?pa=paytm.s1qzkel@pty&pn=Adnan%20SMM&am=${amount}&cu=INR`;
+  const upiLink = `upi://pay?pa=paytm.s1qzkel@pty&pn=Adnan%20SMM&am=${amount}&cu=INR`;
+
+  // UPI open
+  window.location.href = upiLink;
+
+  // Auto redirect to thank you page
+  setTimeout(function(){
+    window.location.href = "thankyou.html";
+  },3000);
 }
 </script>
 
